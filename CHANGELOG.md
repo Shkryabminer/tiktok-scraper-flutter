@@ -1,4 +1,4 @@
-## [0.0.2] - 2024-10-31
+## [0.0.3] - 2024-10-31
 ### Added
 - Initial release of the TikTok Scraper package.
 - Feature to fetch user information by username.
