@@ -6,5 +6,4 @@ void main() async {
 
   // var videoUrl = 'https://www.tiktok.com/@mubashardev/video/7393468652906925317';
   // TiktokVideo video = await TiktokScraper.getVideoInfo(videoUrl);
-
 }
