@@ -87,7 +87,7 @@ class TiktokScraper {
 
     return TiktokVideo(
       id: mainData['id'].toString(),
-      description: mainData['des'].toString(),
+      description: mainData['desc'].toString(),
       createTime: mainData['createTime'].toString(),
       height: videoData['height'],
       width: videoData['width'],

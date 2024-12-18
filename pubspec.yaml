@@ -1,6 +1,6 @@
 name: tiktok_scraper
 description: "A Flutter package to scrape TikTok videos and users data."
-version: 0.0.3
+version: 0.0.4
 homepage: https://mubashar.dev
 repository: https://github.com/mubashardev/tiktok-scraper-flutter
 
