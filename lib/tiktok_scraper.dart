@@ -22,7 +22,7 @@ class TiktokScraper {
   /// If the final result is not a [Map], an [Exception] is thrown.
   ///
   /// Returns the final result as a [Map].
-  /// 
+  ///
   static Future<Map<String, dynamic>> _data(
       String url, List<String> nestedPath) async {
     // Fetch the response from the provided URL
