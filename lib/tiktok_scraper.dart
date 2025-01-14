@@ -111,10 +111,9 @@ class TiktokScraper {
       duration: videoData['duration'],
       defaultResolution: videoData['ratio'],
       thumbnail: videoData['cover'].toString(),
-      downloadUrl: (videoData['downloadAddr'] != null &&
-              videoData['downloadAddr'].toString().isNotEmpty)
-          ? videoData['downloadAddr']
-          : videoData['playAddr'].toString(),
+      downloadUrl: (videoData['playAddr'].toString() != "null")
+          ? videoData['playAddr']
+          : videoData['downloadAddr'].toString(),
       audioUrl: (mainData['music']?['playUrl']).toString(),
       author: Author(
           id: authorData['id'].toString(),
