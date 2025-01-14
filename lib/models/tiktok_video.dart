@@ -9,7 +9,7 @@ class TiktokVideo {
   final String id;
   final String description;
   final String thumbnail;
-  final String downloadUrl;
+  final List<String> downloadUrls;
   final String audioUrl;
   final String createTime;
   final int duration;
@@ -22,7 +22,7 @@ class TiktokVideo {
     required this.id,
     required this.description,
     required this.thumbnail,
-    required this.downloadUrl,
+    required this.downloadUrls,
     required this.audioUrl,
     required this.createTime,
     required this.duration,
@@ -37,7 +37,7 @@ class TiktokVideo {
     String? title,
     String? description,
     String? thumbnail,
-    String? downloadUrl,
+    List<String>? downloadUrl,
     String? audioUrl,
     String? createTime,
     int? duration,
@@ -50,7 +50,7 @@ class TiktokVideo {
       id: id ?? this.id,
       description: description ?? this.description,
       thumbnail: thumbnail ?? this.thumbnail,
-      downloadUrl: downloadUrl ?? this.downloadUrl,
+      downloadUrls: downloadUrl ?? this.downloadUrls,
       audioUrl: audioUrl ?? this.audioUrl,
       createTime: createTime ?? this.createTime,
       duration: duration ?? this.duration,
@@ -84,7 +84,7 @@ class TiktokVideo {
       'id': id,
       'description': description,
       'thumbnail': thumbnail,
-      'downloadUrl': downloadUrl,
+      'downloadUrls': downloadUrls,
       'audioUrl': audioUrl,
       'createTime': createTime,
       'duration': duration,
@@ -102,7 +102,7 @@ class TiktokVideo {
     return other.id == id &&
         other.description == description &&
         other.thumbnail == thumbnail &&
-        other.downloadUrl == downloadUrl &&
+        other.downloadUrls == downloadUrls &&
         other.audioUrl == audioUrl &&
         other.createTime == createTime &&
         other.duration == duration &&
@@ -117,7 +117,7 @@ class TiktokVideo {
     return id.hashCode ^
         description.hashCode ^
         thumbnail.hashCode ^
-        downloadUrl.hashCode ^
+        downloadUrls.hashCode ^
         audioUrl.hashCode ^
         createTime.hashCode ^
         duration.hashCode ^

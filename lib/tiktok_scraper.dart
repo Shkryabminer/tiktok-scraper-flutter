@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:tiktok_scraper/enums.dart';
 import 'package:tiktok_scraper/models/tiktok_video.dart';
 import 'package:dio/dio.dart';
 import 'package:html/parser.dart' as html_parser;
@@ -95,12 +96,24 @@ class TiktokScraper {
   /// Throws an [Exception] if the video URL is invalid or the video data is not found.
   ///
   /// Returns a [TiktokVideo] object containing the video information.
-  static Future<TiktokVideo> getVideoInfo(String url) async {
+  static Future<TiktokVideo> getVideoInfo(String url,
+      {ScrapeVideoSource source = ScrapeVideoSource.OfficialSite}) async {
     var mainData = await _data(url,
         ['__DEFAULT_SCOPE__', 'webapp.video-detail', 'itemInfo', 'itemStruct']);
     var videoData = mainData['video'];
     var authorData = mainData['author'];
     var authorStats = mainData['authorStats'];
+    List<String> downloadUrls = [];
+    if (source == ScrapeVideoSource.OfficialSite) {
+      downloadUrls = [
+        if (videoData['playAddr'].toString() != "null")
+          videoData['playAddr'].toString(),
+        if (videoData['downloadAddr'].toString() != "null")
+          videoData['downloadAddr'].toString()
+      ];
+    } else if (source == ScrapeVideoSource.TikDownloader) {
+      downloadUrls = await _tikDownloadData(url);
+    }
 
     return TiktokVideo(
       id: mainData['id'].toString(),
@@ -111,9 +124,7 @@ class TiktokScraper {
       duration: videoData['duration'],
       defaultResolution: videoData['ratio'],
       thumbnail: videoData['cover'].toString(),
-      downloadUrl: (videoData['playAddr'].toString() != "null")
-          ? videoData['playAddr']
-          : videoData['downloadAddr'].toString(),
+      downloadUrls: downloadUrls,
       audioUrl: (mainData['music']?['playUrl']).toString(),
       author: Author(
           id: authorData['id'].toString(),
@@ -126,5 +137,26 @@ class TiktokScraper {
           videoCount: authorStats['videoCount'],
           diggCount: authorStats['diggCount']),
     );
+  }
+
+  static Future<List<String>> _tikDownloadData(String url) async {
+    var html = (await Dio(
+      BaseOptions(
+        queryParameters: {
+          "q": url,
+        },
+      ),
+    ).post(ScrapeVideoSource.TikDownloader.url))
+        .data['data'];
+    final document = html_parser.parse(html);
+    final elements =
+        document.querySelectorAll('a.tik-button-dl.button.dl-success');
+    final urls = elements
+        .where((element) =>
+            element.text.toString().toLowerCase().contains('download mp4'))
+        .map((element) => element.attributes['href'] ?? '')
+        .where((href) => href.isNotEmpty) // Remove null or empty hrefs
+        .toList();
+    return urls;
   }
 }

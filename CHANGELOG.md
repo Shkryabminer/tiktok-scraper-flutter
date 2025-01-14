@@ -1,3 +1,7 @@
+## [0.0.8]
+### Improved
+- Refactor TikTok video handling to support multiple download URLs and add scraping source options
+
 ## [0.0.7]
 ### Fixed
 - Video download url was not working.
