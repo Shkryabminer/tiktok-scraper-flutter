@@ -1,6 +1,7 @@
-## [0.0.5] - 14-01-2025
+## [0.0.6] - 14-01-2025
 ### Enhanced
 - Improved package documentation.
+- Fix casing in TikTokScraper references
 
 ## [0.0.3] - 14-12-2024
 ### Added

@@ -31,10 +31,10 @@ import 'package:tiktok_scraper/tiktok_scraper.dart';
 void main() async {
   
   // Example: Fetch video details with author
-  var video = await TikTokScraper.getVideoInfo('https://www.tiktok.com/@mubashardev/video/7393468652906925317');
+  var video = await TiktokScraper.getVideoInfo('https://www.tiktok.com/@mubashardev/video/7393468652906925317');
   
   // Example: Get single user profile
-  var author = await TikTokScraper.getUserInfo('mubashardev');
+  var author = await TiktokScraper.getUserInfo('mubashardev');
 
   // More coming soon!!
 }
