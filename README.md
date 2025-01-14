@@ -3,11 +3,6 @@
 ## 🚀 Overview
 TikTok Scraper is a powerful Flutter package designed to effortlessly extract and retrieve TikTok videos and user data. Built with simplicity and efficiency in mind, this library provides developers with an easy-to-use interface for accessing TikTok content programmatically.
 
-## 🕒 Version and Timestamp
-- **Current Version:** 0.0.1
-- **Last Updated:** December 14, 2024, 22:04:22 UTC+5
-- **Project Inception:** Tracking precise development milestones
-
 ## ✨ Features
 - Scrape TikTok user profiles
 - Extract video metadata

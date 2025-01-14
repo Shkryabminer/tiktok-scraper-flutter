@@ -1,3 +1,7 @@
+## [0.0.5] - 14-01-2025
+### Enhanced
+- Improved package documentation.
+
 ## [0.0.3] - 14-12-2024
 ### Added
 - Initial release of the TikTok Scraper package.

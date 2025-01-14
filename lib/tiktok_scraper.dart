@@ -5,7 +5,24 @@ import 'package:dio/dio.dart';
 import 'package:html/parser.dart' as html_parser;
 export 'models/tiktok_video.dart';
 
+/// A class to scrape data from TikTok.
+///
+/// This class provides methods to fetch and parse user and video information
+/// from TikTok using specified URLs and paths.
 class TiktokScraper {
+  /// Fetches and parses the JSON data from the provided URL at the specified
+  /// nested path.
+  ///
+  /// The nested path is a list of keys to traverse the JSON object. The first
+  /// key is used to access the root level of the JSON object, and each subsequent
+  /// key is used to access the child object.
+  ///
+  /// If any of the keys are not found in the JSON object, an [Exception] is thrown.
+  ///
+  /// If the final result is not a [Map], an [Exception] is thrown.
+  ///
+  /// Returns the final result as a [Map].
+  /// 
   static Future<Map<String, dynamic>> _data(
       String url, List<String> nestedPath) async {
     // Fetch the response from the provided URL

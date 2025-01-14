@@ -1,3 +1,10 @@
+/// A TikTok video.
+///
+/// This class contains the information about a TikTok video.
+///
+/// The information includes the video ID, description, thumbnail URL, download URL,
+/// audio URL, creation time, duration, height, width, default resolution, and the
+/// video author.
 class TiktokVideo {
   final String id;
   final String description;
@@ -121,6 +128,12 @@ class TiktokVideo {
   }
 }
 
+/// A TikTok user.
+///
+/// This class contains the information about a TikTok user.
+///
+/// The information includes the user ID, username, name, avatar URL, follower
+/// count, following count, video count, heart count, and digg count.
 class Author {
   final String id;
   final String username;
