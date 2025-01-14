@@ -9,7 +9,8 @@ void main() async {
 
   log(jsonEncode(author.toMap()));
 
-  var videoUrl = 'https://www.tiktok.com/@mubashardev/video/7393468652906925317';
+  var videoUrl =
+      'https://www.tiktok.com/@mubashardev/video/7393468652906925317';
   TiktokVideo video = await TiktokScraper.getVideoInfo(videoUrl);
 
   log(jsonEncode(video.toMap()));
